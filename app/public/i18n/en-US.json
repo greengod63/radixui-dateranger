@@ -1,0 +1,27 @@
+{
+  "values": {
+    "Settings": "Settings",
+    "General Settings": "General Settings",
+    "General": "General",
+    "Organisation Settings": "Organisation Settings",
+    "Organisation": "Organisation",
+    "Language": "Language",
+    "Select Language": "Select Language",
+    "Dark Mode": "Dark Mode",
+    "Dashboard": "Dashboard",
+    "Cancel": "Cancel",
+    "Save": "Save",
+    "Submit": "Submit",
+    "Status": "Status",
+    "%n years": [
+      [0, 0, "%n years"],
+      [1, 1, "%n year"],
+      [2, null, "%n years"]
+    ],
+    "%n months": [
+      [0, 0, "%n months"],
+      [1, 1, "%n month"],
+      [2, null, "%n months"]
+    ]
+  }
+}

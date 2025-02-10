@@ -1,0 +1,22 @@
+{
+  "values": {
+    "Settings": "設定",
+    "General Settings": "一般設定",
+    "General": "一般設定",
+    "Organisation Settings": "オーガナイゼーション設定",
+    "Organisation": "オーガナイゼーション",
+    "Language": "言語",
+    "Select Language": "言語を選択する",
+    "Dark Mode": "ダークモード",
+    "Dashboard": "ダッシュボード",
+    "Cancel": "キャンセル",
+    "Save": "セーブ",
+    "Submit": "提出する",
+    "Status": "状況",
+    "Name": "名前",
+    "%n years": [[0, null, "%n 年"]],
+    "%n months": [[0, null, "%n 月"]],
+    "up": "uppu",
+    "down": "daun"
+  }
+}

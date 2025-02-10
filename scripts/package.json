@@ -1,0 +1,19 @@
+{
+  "name": "prescient",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "webserver": "nodemon src/webserver.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.13.8",
+    "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

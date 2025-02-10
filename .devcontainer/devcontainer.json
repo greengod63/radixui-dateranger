@@ -1,0 +1,60 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.217.2/containers/debian
+{
+	"name": "AWS CLI & CDK Tools",
+	"build": {
+	  "dockerfile": "Dockerfile",
+  
+	  // Update 'VARIANT' to pick an Debian version: bullseye, buster
+	  // Use bullseye on local arm64/Apple Silicon.
+	  "args": {
+		"VARIANT": "bullseye"
+	  }
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+	  "EditorConfig.EditorConfig",
+	  "codezombiech.gitignore",
+	  "esbenp.prettier-vscode",
+	  "yzhang.markdown-all-in-one",
+	  "DavidAnson.vscode-markdownlint",
+	  "ms-vscode.powershell",
+	  "stkb.rewrap",
+	  "streetsidesoftware.code-spell-checker"
+	],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	"mounts": [
+	  // Mount a unique named volume to store VSCode extensions, to avoid installing them every time.
+	  // This volume persists across container restarts and rebuilds
+	  // https://code.visualstudio.com/remote/advancedcontainers/avoid-extension-reinstalls
+	  "source=infrastructure-vscode,target=/home/vscode/.vscode-server/extensions,type=volume",
+	  // Mount a volume to store bash command history, to persist it across container restarts
+	  // https://code.visualstudio.com/remote/advancedcontainers/persist-bash-history
+	  "source=env-infrastructure-bashhistory,target=/commandhistory,type=volume",
+	  // Mount node_modules from a separate volume to ensure it survives container rebuilds
+	//   "source=infrastructure-node_modules,target=${containerWorkspaceFolder}/src/node_modules,type=volume",
+	  // Mount .yarn/cache from a separate volume to ensure it survives container rebuilds
+	//   "source=infrastructure-yarncache,target=${containerWorkspaceFolder}/src/.yarn/cache,type=volume",
+	  // Mount AWS CLI profile and credentials from host machine.
+	  "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind",
+	],
+	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	// Using --init ensures that VSCode sets up docker security for us
+	"runArgs": ["--init", "-t"],
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	// "features": {
+	//   "ghcr.io/devcontainers/features/git:1": {},
+	//   "ghcr.io/devcontainers/features/powershell:1": {}	  
+	// },
+  
+	// Initialise the host machine (mostly used to ensure that some required directories and files exist)
+	"initializeCommand": ["./.devcontainer/init"],
+  
+	// Make sure to install modules on startup
+	// "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode ; sudo chown vscode:vscode src/node_modules src/.yarn/cache",
+	// "postStartCommand": "${containerWorkspaceFolder}/.devcontainer/post-start.sh"
+  }
+  
